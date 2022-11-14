@@ -1,5 +1,6 @@
-const Express = require( 'express' )
-const app = new Express()
+const Express = require( 'express' );
+const app = new Express();
+app.use(Express.json());
 
 
 let watu =[
@@ -30,6 +31,15 @@ app.get( "/people", ( req, res ) => {
     res.json(watu)
 })
 
+app.post( "/people", ( req, res ) => {
+  
+    const NewWatu = req.body
+
+    watu.push( NewWatu )
+    
+    res.json(watu)
+    
+})
 
 
 app.listen( '3001', () => {
